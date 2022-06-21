@@ -15,10 +15,10 @@ namespace desafioBrq
             string confirmarDado = "";
             
             
-            do
+            do 
             {
 
-                Console.Write("Digite o seu nome e sobrenome: ");
+                Console.Write("Digite o seu nome e sobrenome: "); // solicitando ao usuário para digitar nome e sobrenome.
                 nome = Console.ReadLine();
 
                 Console.Write("Informe qual é o seu sexo (F/M): ");

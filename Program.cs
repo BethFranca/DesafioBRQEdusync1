@@ -7,17 +7,16 @@ namespace desafioBrq
         static void Main(string[] args)
         {
             //Declarações de variáveis
-            string nome = "";
-            string sexo = ""; // variavel string
-            int idade = 0; // variavel int
-            double altura = 0;
-            double peso = 0;
+            string nome = ""; // variável do tipo "string" aceita uma sequência de caracteres, exemplo texto.
+            string sexo = ""; // 
+            int idade = 0; // variavel do tipo "int" guarda valores inteiros.
+            double altura = 0;// variável do tipo "double" representa números de ponto flutuante.  
+            double peso = 0; 
             string confirmarDado = "";
             
-            
+            // nas próximas linhas no bloco da linha 18 á linha 30 utilizei a estrutura de repetição para garantir a que o código dentro do loop seja executado pelo menos uma vez e ou quantas vezes forem necessárias.
             do 
             {
-
                 Console.Write("Digite o seu nome e sobrenome: "); // solicitando ao usuário para digitar nome e sobrenome.
                 nome = Console.ReadLine();
 
@@ -28,25 +27,24 @@ namespace desafioBrq
                 {
                     Console.Write("Informação inválida, digite F ou M: ");
                     sexo = Console.ReadLine();
-
                 }
 
                 
 
-                Console.Write("Digite a sua idade: ");
+                Console.Write("Digite a sua idade: ");// solicitação ao usuário que digite a sua idade.
                 idade = int.Parse(Console.ReadLine());
 
                 while (idade < 1 || idade > 150)
                 {
-                    Console.Write("Idade incorreta, digite entre 1 a 150 anos: ");
+                    Console.Write("Idade incorreta, digite entre 1 a 150 anos: ");// Caso o usuário digite uma idade inesistente ou incorreta, na tela será impresso a segunte mensagem que consta entre parênteses e entre aspas duplas.
                     int.TryParse(Console.ReadLine(), out idade);
                 }
                 
 
-                Console.Write("Digite a sua altura: ");
+                Console.Write("Digite a sua altura: ");// solicitação ao usuário que informe a sua altura. O cursor aparece em frente a orientação data pelo código ao usuário.
                 double.TryParse(Console.ReadLine(), out altura);
 
-                while (altura < 0.5 || altura > 3.0)
+                while (altura < 0.5 || altura > 3.0)// Estrutura de repetição usando While, e utilizando operador lógico da disjunção para efetuar a comparação "OU" entre as condições.
                 {
                     Console.Write("Altura incorreta, digite altura entre 0,5 a 3,0 metros: ");
                     double.TryParse(Console.ReadLine(), out altura);
@@ -82,12 +80,12 @@ namespace desafioBrq
 
             double imc = peso / (altura * altura); // Calculo IMC baseado no peso e na altura  do paciente.      
 
-            string categoria = "";// Identifica a categoria do paciente de acordo com sua idade
+            string categoria = "";// Identifica a categoria do paciente de acordo com a sua idade. Utilizando estrutura condicional if/else.
             if (idade < 12)
             {
                 categoria = "Infantil";
             }
-            else if (idade >= 12 && idade <= 20)
+            else if (idade >= 12 && idade <= 20)// utilizando operador lógico &&.   
             {
                 categoria = "Juvenil";
             }
@@ -102,8 +100,8 @@ namespace desafioBrq
             }
 
             string risco = ""; // Identifica o risco e a recomendação de acordo com o resultado do calculo IMC do usuário;
-            string recomendacoes = "";
-
+            string recomendacoes = ""; 
+            //Estrutura condicional if/else é um recurso que indica quais instruções o sistema deve processar.
             if (imc < 20)
             {
                 recomendacoes = "Inclua carboidratos simples em sua dieta, além de proteínas indispensáveis para ganho de massa magra. \n Procure um profissional.";
@@ -129,7 +127,7 @@ namespace desafioBrq
                 recomendacoes = "Procure com urgência o acompanhamento de um nutricionista \n para realizar reeducação alimentar, um psicólogo e um médico especialista(endócrino).";
                 risco = "O obeso mórbido vive menos, tem alto risco de mortalidade geral por diversas causas.";
             }
-            // Exibição do relatório do diagnóstico prévio.
+            // Exibição do relatório do diagnóstico prévio do paciente.
             Console.WriteLine("\n\tDIAGNÓSTICO PRÉVIO");
             Console.WriteLine($"\nNome: {nome}");
             Console.WriteLine($"Sexo: {sexo}");
